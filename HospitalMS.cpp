@@ -37,6 +37,7 @@ public:
             }
             temp->next = newPatient;
         }
+        cout << "Add successful: Patient ID " << id << " added." << endl;
     }
 
     void displayPatients() {
@@ -88,13 +89,14 @@ public:
 
     void addPatientToQueue(int patientId) {
         q.push(patientId);
+        cout << "Add successful: Patient ID " << patientId << " added to appointment queue." << endl;
     }
 
     void processNextPatient() {
         if (!q.empty()) {
             int patientId = q.front();
             q.pop();
-            cout << "Processing patient with ID: " << patientId << endl;
+            cout << "Processing successful: Patient ID " << patientId << " processed." << endl;
         } else {
             cout << "No patients in queue." << endl;
         }
@@ -158,6 +160,17 @@ private:
         }
     }
 
+    Doctor* searchDoctor(Doctor* node, const string& name) {
+        if (!node || node->name == name) {
+            return node;
+        }
+        if (name < node->name) {
+            return searchDoctor(node->left, name);
+        } else {
+            return searchDoctor(node->right, name);
+        }
+    }
+
     void saveDoctorsToFile(Doctor* node, ofstream& outfile) {
         if (node) {
             saveDoctorsToFile(node->left, outfile);
@@ -188,10 +201,20 @@ public:
 
     void addDoctor(int id, const string& name, const string& specialization) {
         root = insertDoctor(root, id, name, specialization);
+        cout << "Add successful: Doctor ID " << id << " added." << endl;
     }
 
     void displayDoctors() {
         inorderTraversal(root);
+    }
+
+    void searchDoctor(const string& name) {
+        Doctor* foundDoctor = searchDoctor(root, name);
+        if (foundDoctor) {
+            cout << "Doctor found: ID: " << foundDoctor->id << ", Name: " << foundDoctor->name << ", Specialization: " << foundDoctor->specialization << endl;
+        } else {
+            cout << "Doctor with name " << name << " not found." << endl;
+        }
     }
 
     void loadDoctorsFromFile() {
@@ -217,7 +240,7 @@ void posMenu(PatientList &patientList, AppointmentQueue &appointmentQueue, Docto
     do {
         cout << "\n--- POS Menu ---" << endl;
         cout << "1. Add Patient" << endl;
-        cout << "2. Display Doctors" << endl;
+        cout << "2. Search Doctor" << endl;
         cout << "3. Add Patient to Appointment Queue" << endl;
         cout << "4. Back to Main Menu" << endl;
         cout << "Enter your choice: ";
@@ -238,8 +261,11 @@ void posMenu(PatientList &patientList, AppointmentQueue &appointmentQueue, Docto
                 break;
             }
             case 2: {
-                cout << "Doctors List:" << endl;
-                doctorBST.displayDoctors();
+                string name;
+                cout << "Enter Doctor Name to search: ";
+                cin.ignore();
+                getline(cin, name);
+                doctorBST.searchDoctor(name);
                 break;
             }
             case 3: {
@@ -334,9 +360,8 @@ int main() {
                 cout << "Exiting the system..." << endl;
                 break;
             default:
-                cout << "Invalid";
+                cout << "Invalid choice! Please try again." << endl;
         }
-        }while (userType !=3);
+    } while (userType != 3);
     return 0;
 }
-        
