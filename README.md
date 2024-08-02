@@ -11,7 +11,7 @@ This project represents a simple Hospital Management System that manages patient
 - age: Age of the patient.
 - next: Pointer to the next patient in the linked list.
 
-###Functions for Patient Management
+### Functions for Patient Management
 
  - addPatient: Adds a new patient to the linked list.
  - displayPatients: Displays all patients in the list.
