@@ -88,3 +88,5 @@ This menu is intended for administrative users who manage doctors and appointmen
 * Doctors are managed using a binary search tree (BST).
 * The system includes file handling to persist data across sessions.
 * Different menus are provided for different types of users (POS and Admin).
+
+### Live Preview: <a href="https://replit.com/@rahatdev/Hospital-Management-System?v=1">REPLIT</a>
