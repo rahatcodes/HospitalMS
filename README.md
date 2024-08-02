@@ -75,7 +75,7 @@ This menu is intended for administrative users who manage doctors and appointmen
 * Processing appointments
   
 ## Main Function
-<img src="https://github.com/user-attachments/assets/57cdaaa6-c123-4ffb-8bb2-c20ee70870f7"><br>
+<img src="https://github.com/user-attachments/assets/57cdaaa6-c123-4ffb-8bb2-c20ee70870f7" width="70%"><br>
 
 * The main function initializes the system by loading data from files and then presents the user with a menu to select their role (POS or Admin) or to exit the system.
 * Based on the user's choice, the corresponding menu is displayed, and the appropriate functions are called.
@@ -90,3 +90,6 @@ This menu is intended for administrative users who manage doctors and appointmen
 * Different menus are provided for different types of users (POS and Admin).
 
 ### Live Preview: <a href="https://replit.com/@rahatdev/Hospital-Management-System?v=1">REPLIT</a>
+![Menu 01](https://github.com/user-attachments/assets/c294684d-abcc-45ed-ba70-1ddae969ffba)
+![Menu 02](https://github.com/user-attachments/assets/468f29ff-f48a-4da6-a026-782955c9534b)
+
